@@ -2,10 +2,6 @@
 
 A full-stack fitness and wellness app for building sustainable habits. Track workouts, daily hydration, nutrition targets, and personal progress in one place.
 
-## Preview
-
-![FitJourney design preview](./fe/public/preview.png)
-
 ## Features
 
 - Personalized dashboard with weekly activity and daily goals
