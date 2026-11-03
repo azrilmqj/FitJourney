@@ -41,7 +41,7 @@ export function ArticleDetail() {
             <img className="article-hero" src={a.image} alt={t(a.title)} />
             <div className="prose">
               {a.content.split('\n\n').map((p, i) => (
-                <p key={i}>{p}</p>
+                <p key={i}>{t(p)}</p>
               ))}
             </div>
           </article>

@@ -13,8 +13,8 @@ export function ArticleCard({ article }: { article: Article }) {
         <span className="image-category">{t(article.category)}</span>
       </div>
       <div className="content-card-body">
-        <h3>{article.title}</h3>
-        <p>{article.excerpt}</p>
+        <h3>{t(article.title)}</h3>
+        <p>{t(article.excerpt)}</p>
         <span className="read-time">
           <Clock size={13} />
           {article.readTime}

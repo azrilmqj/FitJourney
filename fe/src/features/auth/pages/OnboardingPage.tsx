@@ -38,14 +38,14 @@ export function Onboarding() {
           <div style={{ width: `${(step + 1) * 25}%` }} />
         </div>
         <h1>
-          {
+          {t(
             [
               'Let’s get to know you.',
               'What are you working toward?',
               'Find your everyday pace.',
               'You’re ready to begin.',
-            ][step]
-          }
+            ][step],
+          )}
         </h1>
         <p>{t('Your information helps personalize your experience.')}</p>
         <form

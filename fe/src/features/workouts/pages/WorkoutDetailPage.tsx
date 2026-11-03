@@ -49,7 +49,7 @@ function WorkoutSession({ id }: { id?: string }) {
               />
               <Card>
                 <h2>{t('A little time for you')}</h2>
-                <p>{w.description}</p>
+                <p>{t(w.description)}</p>
                 <div className="tags">
                   <span>
                     <Clock size={16} />
@@ -58,7 +58,7 @@ function WorkoutSession({ id }: { id?: string }) {
                   </span>
                   <span>
                     <Dumbbell size={16} />
-                    {w.target}
+                    {t(w.target)}
                   </span>
                 </div>
                 <Message text={message} />
@@ -98,7 +98,7 @@ function WorkoutSession({ id }: { id?: string }) {
                 {w.exercises.map((item, i) => (
                   <li key={i}>
                     <span>{String(i + 1).padStart(2, '0')}</span>
-                    {item}
+                    {t(item)}
                   </li>
                 ))}
               </ol>

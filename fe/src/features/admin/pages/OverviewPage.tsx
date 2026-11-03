@@ -35,7 +35,18 @@ export function Overview() {
               <h2>{t('New users by month')}</h2>
               <div className="large-chart">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={r.data.growth}>
+                  <BarChart
+                    data={r.data.growth.map((item) => ({
+                      ...item,
+                      _id:
+                        locale === 'id-ID' && /^\d{4}-\d{2}$/.test(item._id)
+                          ? new Date(`${item._id}-01T00:00:00`).toLocaleDateString(locale, {
+                              month: 'short',
+                              year: 'numeric',
+                            })
+                          : item._id,
+                    }))}
+                  >
                     <XAxis dataKey="_id" />
                     <YAxis allowDecimals={false} />
                     <Tooltip />

@@ -21,7 +21,7 @@ export function WorkoutCard({ workout }: { workout: Workout }) {
         <span className="image-category">{t(workout.category)}</span>
       </div>
       <div className="content-card-body">
-        <h3>{workout.title}</h3>
+        <h3>{t(workout.title)}</h3>
         <p>
           {t('With')}
           {workout.trainer} <span>·</span> {t(workout.level)}

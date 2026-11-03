@@ -522,4 +522,12 @@ export const id: Record<string, string> = {
   Unread: 'Belum dibaca',
   'You are all caught up': 'Belum ada kabar terbaru',
   'New updates will appear here.': 'Kabar terbaru akan muncul di sini.',
+  'Email': 'Email',
+  'Admin': 'Admin',
+  'User': 'Pengguna',
+  'Search workout library': 'Cari latihan',
+  'Your full name': 'Nama lengkap Anda',
+  'your-article-title': 'judul-artikel-anda',
+  '(cm)': '(cm)',
+  'https://…': 'https://…',
 };
