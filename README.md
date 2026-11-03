@@ -25,8 +25,11 @@ Requirements: Node.js 22.19+ and MongoDB 8.
 Install each app in its own folder so its dependencies stay local:
 
 ```bash
-cd be && npm install
-cd ../fe && npm install
+cd be
+npm ci
+cd ../fe
+npm ci
+cd ..
 ```
 
 Create the backend environment file and seed sample content:
