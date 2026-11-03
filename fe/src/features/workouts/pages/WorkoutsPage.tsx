@@ -1,4 +1,5 @@
 import { useLanguage } from '@/hooks/useLanguage';
+import { localizedContent } from '@/i18n/localizedContent';
 import { WorkoutCard } from '@/components/content';
 import { Empty, Heading, LoadState, Tabs } from '@/components/ui';
 import { useResource } from '@/hooks/useResource';
@@ -8,7 +9,7 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 export function Workouts() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const resource = useResource<Workout[]>('/workouts');
   const [category, setCategory] = useState('All');
@@ -19,7 +20,9 @@ export function Workouts() {
     (w) =>
       (category === 'All' || w.category === category) &&
       (level === 'All levels' || w.level === level) &&
-      `${w.title} ${w.trainer} ${w.target}`.toLowerCase().includes(query.toLowerCase()),
+      `${localizedContent(w, language).title} ${w.trainer} ${localizedContent(w, language).target}`
+        .toLowerCase()
+        .includes(query.toLowerCase()),
   );
   return (
     <>

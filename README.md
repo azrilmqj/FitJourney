@@ -10,6 +10,7 @@ A full-stack fitness and wellness app for building sustainable habits. Track wor
 - Progress journal for weight, measurements, sleep, and notes
 - Articles, account settings, and responsive navigation
 - Admin tools for users, workouts, articles, and progress review
+- Optional Indonesian translations for admin-managed article and workout content
 
 ## Tech stack
 

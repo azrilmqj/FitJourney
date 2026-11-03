@@ -4,13 +4,18 @@ import { adminApi } from '@/services/admin.service';
 import type { Article, Workout } from '@/types';
 import { useState } from 'react';
 
+type ContentItem = Partial<Omit<Workout, 'translations'>> &
+  Partial<Omit<Article, 'translations'>> & {
+    translations?: { id?: Record<string, unknown> };
+  };
+
 export function ContentForm({
   kind,
   item,
   done,
 }: {
   kind: string;
-  item?: Partial<Workout & Article>;
+  item?: ContentItem;
   done: () => void;
 }) {
   const { t } = useLanguage();
@@ -28,6 +33,21 @@ export function ContentForm({
           e.preventDefault();
           const f = new FormData(e.currentTarget);
           const data: Record<string, unknown> = Object.fromEntries(f);
+          const idTranslation: Record<string, unknown> = {};
+          const translatedFields = video
+            ? ['title', 'description', 'target', 'exercises']
+            : ['title', 'excerpt', 'content'];
+          for (const field of translatedFields) {
+            const value = String(f.get(`id_${field}`) || '').trim();
+            delete data[`id_${field}`];
+            if (field === 'exercises' && value)
+              idTranslation.exercises = value
+                .split('\n')
+                .map((line) => line.trim())
+                .filter(Boolean);
+            else if (value) idTranslation[field] = value;
+          }
+          if (Object.keys(idTranslation).length) data.translations = { id: idTranslation };
           if (video) {
             data.duration = Number(data.duration);
             data.exercises = String(data.exercises)
@@ -65,6 +85,17 @@ export function ContentForm({
           {t('Title')}
           <input name="title" required maxLength={200} defaultValue={item?.title} />
         </label>
+        <details>
+          <summary>{t('Indonesian translation (optional)')}</summary>
+          <label>
+            {t('Indonesian title')}
+            <input
+              name="id_title"
+              maxLength={200}
+              defaultValue={item?.translations?.id?.title as string | undefined}
+            />
+          </label>
+        </details>
         <div className="grid two">
           <label>
             {t('Category')}
@@ -106,6 +137,34 @@ export function ContentForm({
                 defaultValue={item?.description}
               />
             </label>
+            <details>
+              <summary>{t('Indonesian workout details')}</summary>
+              <label>
+                {t('Indonesian description')}
+                <textarea
+                  name="id_description"
+                  maxLength={5000}
+                  defaultValue={item?.translations?.id?.description as string | undefined}
+                />
+              </label>
+              <label>
+                {t('Indonesian muscle group')}
+                <input
+                  name="id_target"
+                  maxLength={100}
+                  defaultValue={item?.translations?.id?.target as string | undefined}
+                />
+              </label>
+              <label>
+                {t('Indonesian exercises · one per line')}
+                <textarea
+                  name="id_exercises"
+                  defaultValue={
+                    (item?.translations?.id?.exercises as string[] | undefined)?.join('\n')
+                  }
+                />
+              </label>
+            </details>
             <div className="grid two">
               <label>
                 {t('Trainer')}
@@ -160,6 +219,14 @@ export function ContentForm({
               <textarea name="excerpt" required maxLength={500} defaultValue={item?.excerpt} />
             </label>
             <label>
+              {t('Indonesian excerpt')}
+              <textarea
+                name="id_excerpt"
+                maxLength={500}
+                defaultValue={item?.translations?.id?.excerpt as string | undefined}
+              />
+            </label>
+            <label>
               {t('Content')}
               <textarea
                 className="editor"
@@ -167,6 +234,15 @@ export function ContentForm({
                 required
                 maxLength={30000}
                 defaultValue={item?.content}
+              />
+            </label>
+            <label>
+              {t('Indonesian article content')}
+              <textarea
+                className="editor"
+                name="id_content"
+                maxLength={30000}
+                defaultValue={item?.translations?.id?.content as string | undefined}
               />
             </label>
             <div className="grid two">

@@ -1,4 +1,5 @@
 import { useLanguage } from '@/hooks/useLanguage';
+import { localizedContent } from '@/i18n/localizedContent';
 import { ArticleCard } from '@/components/content';
 import { Empty, Heading, LoadState, Tabs } from '@/components/ui';
 import { useResource } from '@/hooks/useResource';
@@ -7,7 +8,7 @@ import { Search } from 'lucide-react';
 import { useState } from 'react';
 
 export function Articles() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const resource = useResource<Article[]>('/articles');
   const [category, setCategory] = useState('All');
@@ -15,7 +16,7 @@ export function Articles() {
   const filtered = resource.data?.filter(
     (a) =>
       (category === 'All' || category === a.category) &&
-      a.title.toLowerCase().includes(query.toLowerCase()),
+      localizedContent(a, language).title.toLowerCase().includes(query.toLowerCase()),
   );
   return (
     <>

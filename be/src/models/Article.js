@@ -12,6 +12,13 @@ export const Article = model(
       image: String,
       author: String,
       readTime: Number,
+      translations: {
+        id: {
+          title: String,
+          excerpt: String,
+          content: String,
+        },
+      },
       status: { type: String, default: 'published' },
     },
     { timestamps: true },

@@ -530,4 +530,12 @@ export const id: Record<string, string> = {
   'your-article-title': 'judul-artikel-anda',
   '(cm)': '(cm)',
   'https://…': 'https://…',
+  'Indonesian translation (optional)': 'Terjemahan bahasa Indonesia (opsional)',
+  'Indonesian title': 'Judul bahasa Indonesia',
+  'Indonesian workout details': 'Detail latihan bahasa Indonesia',
+  'Indonesian description': 'Deskripsi bahasa Indonesia',
+  'Indonesian muscle group': 'Kelompok otot bahasa Indonesia',
+  'Indonesian exercises · one per line': 'Gerakan bahasa Indonesia · satu per baris',
+  'Indonesian excerpt': 'Ringkasan bahasa Indonesia',
+  'Indonesian article content': 'Isi artikel bahasa Indonesia',
 };

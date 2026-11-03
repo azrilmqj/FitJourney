@@ -1,4 +1,5 @@
 import { useLanguage } from '@/hooks/useLanguage';
+import { localizedContent } from '@/i18n/localizedContent';
 import { Card, Empty, LoadState, Message, Modal } from '@/components/ui';
 import { useResource } from '@/hooks/useResource';
 import { adminApi } from '@/services/admin.service';
@@ -10,7 +11,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ContentForm } from '@/features/admin/components/ContentForm';
 
 export function ContentAdmin({ kind }: { kind: string }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ export function ContentAdmin({ kind }: { kind: string }) {
                 <td>
                   <div className="table-title">
                     <img src={item.image} alt={t('')} />
-                    {item.title}
+                    {t(localizedContent(item, language).title)}
                   </div>
                 </td>
                 <td>{t(item.category)}</td>
@@ -74,14 +75,14 @@ export function ContentAdmin({ kind }: { kind: string }) {
                   <div className="actions">
                     <Link
                       className="icon-button"
-                      aria-label={t(`Edit ${item.title}`)}
+                      aria-label={t(`Edit ${localizedContent(item, language).title}`)}
                       to={`/admin/${kind}/${item._id}/edit`}
                     >
                       <Pencil size={17} />
                     </Link>
                     <button
                       className="icon-button danger-text"
-                      aria-label={t(`Delete ${item.title}`)}
+                      aria-label={t(`Delete ${localizedContent(item, language).title}`)}
                       onClick={() => setDeleting(item._id)}
                     >
                       <Trash2 size={17} />

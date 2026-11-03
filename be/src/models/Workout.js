@@ -14,6 +14,14 @@ export const Workout = model(
       image: String,
       videoId: String,
       exercises: [String],
+      translations: {
+        id: {
+          title: String,
+          description: String,
+          target: String,
+          exercises: [String],
+        },
+      },
       status: { type: String, default: 'published' },
     },
     { timestamps: true },

@@ -1,4 +1,5 @@
 import { useLanguage } from '@/hooks/useLanguage';
+import { localizedContent } from '@/i18n/localizedContent';
 import { WorkoutCard } from '@/components/content';
 import { Card, Heading, LoadState, Message } from '@/components/ui';
 import { useAuth } from '@/hooks/useAuth';
@@ -15,7 +16,7 @@ export function WorkoutDetail() {
 }
 
 function WorkoutSession({ id }: { id?: string }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const resource = useResource<Workout>(`/workouts/${id}`);
   const related = useResource<Workout[]>('/workouts');
@@ -23,7 +24,7 @@ function WorkoutSession({ id }: { id?: string }) {
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
-  const w = resource.data;
+  const w = resource.data ? localizedContent(resource.data, language) : undefined;
   return (
     <>
       <Link className="back-link" to="/workouts">
@@ -35,7 +36,7 @@ function WorkoutSession({ id }: { id?: string }) {
         <>
           <Heading
             title={t(w.title)}
-            subtitle={t(`With ${w.trainer} · ${t(w.level)} · ${t(w.category)}`)}
+            subtitle={`${t('With')} ${w.trainer} · ${t(w.level)} · ${t(w.category)}`}
           />
           <div className="detail-grid">
             <div>

@@ -40,6 +40,9 @@ export interface Workout {
   videoId: string;
   exercises: string[];
   status: string;
+  translations?: {
+    id?: Partial<Pick<Workout, 'title' | 'description' | 'target' | 'exercises'>>;
+  };
 }
 export interface Article {
   _id: string;
@@ -53,6 +56,9 @@ export interface Article {
   readTime: number;
   status: string;
   createdAt: string;
+  translations?: {
+    id?: Partial<Pick<Article, 'title' | 'excerpt' | 'content'>>;
+  };
 }
 export interface Progress {
   _id: string;
