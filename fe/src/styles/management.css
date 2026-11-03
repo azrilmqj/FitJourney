@@ -1,0 +1,181 @@
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px;
+  border: 1px solid #dce5e8;
+  border-radius: 12px;
+  width: fit-content;
+  flex-shrink: 0;
+  background: white;
+}
+.language-switcher > svg {
+  margin: 0 5px;
+  color: #527987;
+}
+.language-switcher button {
+  border: 0;
+  border-radius: 8px;
+  padding: 7px 9px;
+  font-size: 11px;
+  background: transparent;
+}
+.language-switcher button[aria-pressed='true'] {
+  background: #d8eff6;
+  color: #235c72;
+  font-weight: 700;
+}
+.auth-form > .language-switcher {
+  align-self: flex-end;
+}
+.logout-confirm-symbol {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: #e0f2f9;
+  color: #235c72;
+  margin-bottom: 18px;
+}
+.logout-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+.notification-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  display: grid;
+  place-items: center;
+  background: #235c72;
+  color: white;
+  font-size: 9px;
+  border-radius: 12px;
+  border: 2px solid white;
+}
+.notification-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.notification-toolbar p {
+  margin: 0;
+}
+.notification-toolbar button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.notification-list {
+  display: grid;
+  gap: 8px;
+  max-height: 55vh;
+  overflow: auto;
+}
+.notification-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid #e8eeee;
+  border-radius: 14px;
+}
+.notification-item.unread {
+  background: #f0f8fb;
+  border-color: #d6eaf1;
+}
+.notification-item:hover {
+  border-color: #64abc1;
+}
+.notification-item > div {
+  min-width: 0;
+  flex: 1;
+}
+.notification-item strong {
+  font-size: 12px;
+  display: block;
+  overflow-wrap: anywhere;
+}
+.notification-item time {
+  display: block;
+  font-size: 10px;
+  color: #677981;
+  margin-top: 6px;
+}
+.notification-symbol {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  background: #e0f2f9;
+  border-radius: 12px;
+  color: #235c72;
+  flex-shrink: 0;
+}
+.unread-dot {
+  width: 7px;
+  height: 7px;
+  background: #338da9;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+@media (min-width: 901px) {
+  .admin-shell .sidebar {
+    width: 210px;
+    align-items: stretch;
+    padding: 30px 18px 22px;
+  }
+  .admin-shell .side-brand {
+    font-size: 22px;
+    align-self: center;
+  }
+  .admin-shell .sidebar nav {
+    gap: 9px;
+    align-items: stretch;
+  }
+  .admin-shell .sidebar nav > a {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 0 13px;
+  }
+  .admin-shell .sidebar nav > a > span {
+    display: block;
+    font-size: 11px;
+  }
+  .admin-shell .sidebar nav > a.active:before {
+    left: -18px;
+  }
+  .admin-shell .app-body {
+    margin-left: 210px;
+  }
+  .admin-shell .side-bottom {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .topbar {
+    gap: 10px;
+  }
+  .notification-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .language-switcher > svg {
+    display: none;
+  }
+}

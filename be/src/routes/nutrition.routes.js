@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import * as controller from '../controllers/nutrition.controller.js';
+import { requireAuth } from '../middleware/auth.middleware.js';
+import { validateBody } from '../middleware/validate.middleware.js';
+import { nutritionSchema } from '../validators/nutrition.validator.js';
+const router = Router();
+router.use(requireAuth);
+router.post('/calculate', validateBody(nutritionSchema), controller.calculate);
+router.put('/target', validateBody(nutritionSchema), controller.saveTarget);
+export default router;

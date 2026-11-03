@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import * as controller from '../controllers/progress.controller.js';
+import { requireAuth } from '../middleware/auth.middleware.js';
+import { validateBody, validateObjectId } from '../middleware/validate.middleware.js';
+import { progressSchema } from '../validators/progress.validator.js';
+const router = Router();
+router.use(requireAuth);
+router.get('/', controller.listProgress);
+router.post('/', validateBody(progressSchema), controller.createProgress);
+router.delete('/:id', validateObjectId, controller.deleteProgress);
+export default router;

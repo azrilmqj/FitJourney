@@ -1,0 +1,24 @@
+import notificationRoutes from './notification.routes.js';
+import { Router } from 'express';
+import activityRoutes from './activity.routes.js';
+import adminRoutes from './admin.routes.js';
+import articleRoutes from './article.routes.js';
+import authRoutes from './auth.routes.js';
+import healthRoutes from './health.routes.js';
+import nutritionRoutes from './nutrition.routes.js';
+import progressRoutes from './progress.routes.js';
+import userRoutes from './user.routes.js';
+import workoutRoutes from './workout.routes.js';
+
+const router = Router();
+router.use('/', healthRoutes);
+router.use('/auth', authRoutes);
+router.use('/me', userRoutes);
+router.use('/workouts', workoutRoutes);
+router.use('/articles', articleRoutes);
+router.use('/nutrition', nutritionRoutes);
+router.use('/progress', progressRoutes);
+router.use('/activity', activityRoutes);
+router.use('/admin', adminRoutes);
+router.use('/notifications', notificationRoutes);
+export default router;

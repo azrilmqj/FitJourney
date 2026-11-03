@@ -1,0 +1,14 @@
+@import '@fontsource/plus-jakarta-sans/latin-400.css';
+@import '@fontsource/plus-jakarta-sans/latin-500.css';
+@import '@fontsource/plus-jakarta-sans/latin-600.css';
+@import '@fontsource/plus-jakarta-sans/latin-700.css';
+@import '@fontsource/plus-jakarta-sans/latin-800.css';
+@import 'tailwindcss';
+@import './base.css';
+@import './layout.css';
+@import './dashboard.css';
+@import './components.css';
+@import './landing.css';
+@import './auth-effects.css';
+@import './responsive.css';
+@import './management.css';

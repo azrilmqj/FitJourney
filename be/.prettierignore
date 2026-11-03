@@ -1,0 +1,7 @@
+node_modules/
+dist/
+coverage/
+test-results/
+
+# Long-form product design reference
+../desain.md

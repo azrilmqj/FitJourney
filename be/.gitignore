@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Local environment and secrets; keep the example template
+.env
+.env.*
+!.env.example
+
+# Generated output and logs
+coverage/
+*.log
+npm-debug.log*

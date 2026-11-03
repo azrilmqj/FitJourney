@@ -1,0 +1,141 @@
+:root {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #171e22;
+  background: #f3f4f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --muted: #747b80;
+  --border: #e7eaea;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 19px;
+  background: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    transform 0.18s;
+  white-space: nowrap;
+}
+button:hover,
+.button:hover {
+  background: #edf4f5;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+button:active:not(:disabled),
+.button:active {
+  transform: translateY(1px);
+}
+.primary {
+  background: #192329;
+  color: white;
+  border-color: #192329;
+}
+.primary:hover {
+  background: #34474f;
+}
+.secondary {
+  background: #fff;
+  border: 1px solid #dfe5e7;
+}
+.danger {
+  background: #ffeded;
+  color: #a92727;
+  border-color: #f5caca;
+}
+.danger-text {
+  color: #b53838;
+}
+.full {
+  width: 100%;
+}
+:focus-visible {
+  outline: 3px solid #268eac;
+  outline-offset: 3px;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  font-size: 30px;
+  line-height: 1.3;
+  font-weight: 750;
+  letter-spacing: -1.1px;
+}
+h2 {
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+h3 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 7px 0 16px;
+}
+small,
+.small {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+  color: #5a7079;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+.brand {
+  font-size: 27px;
+  letter-spacing: -1.5px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #101a1e;
+}
+.brand > span {
+  color: #55b2cf;
+  font-size: 10px;
+  margin-top: 11px;
+}

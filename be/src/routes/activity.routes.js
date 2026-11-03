@@ -1,0 +1,11 @@
+import { Router } from 'express';
+import * as controller from '../controllers/activity.controller.js';
+import { requireAuth } from '../middleware/auth.middleware.js';
+import { validateBody } from '../middleware/validate.middleware.js';
+import { completedWorkoutSchema, waterSchema } from '../validators/activity.validator.js';
+const router = Router();
+router.use(requireAuth);
+router.get('/', controller.listActivity);
+router.post('/water', validateBody(waterSchema), controller.logWater);
+router.post('/workout', validateBody(completedWorkoutSchema), controller.logWorkout);
+export default router;
